@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-mapper/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-mapper/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-pojo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-pojo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/fengli-videos-dev-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-generatorConfig/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-generatorConfig/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
