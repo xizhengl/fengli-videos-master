@@ -15,7 +15,7 @@ public class Users {
     /**
      * 用户名
      */
-    @ApiModelProperty(value="用户名", name="username", example="imoocuser", required=true)
+    @ApiModelProperty(value="用户名", name="username", example="user", required=true)
     private String username;
 
     /**

@@ -42,7 +42,7 @@ public class Swagger2 {
         pars.add(userIdHeader.build());
 		
 		return new Docket(DocumentationType.SWAGGER_2).apiInfo(apiInfo()).select()
-				.apis(RequestHandlerSelectors.basePackage("com.imooc.controller"))
+				.apis(RequestHandlerSelectors.basePackage("com.fengli.video.controller"))
 				.paths(PathSelectors.any()).build()
 				.globalOperationParameters(pars);
 	}
@@ -55,7 +55,7 @@ public class Swagger2 {
 				// 设置页面标题
 				.title("使用swagger2构建短视频后端api接口文档")
 				// 设置联系人
-				.contact(new Contact("imooc-风间影月", "http://www.imooc.com", "imooc@163.com"))
+				.contact(new Contact("fengli-Nobug", "http://39.99.250.62/", "2425220864@qq.com"))
 				// 描述
 				.description("欢迎访问短视频接口文档，这里是描述信息")
 				// 定义版本号

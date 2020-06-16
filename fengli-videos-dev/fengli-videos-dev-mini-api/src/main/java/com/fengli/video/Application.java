@@ -10,9 +10,9 @@ import tk.mybatis.spring.annotation.MapperScan;
 @MapperScan(basePackages="com.fengli.video.mapper")
 @ComponentScan(basePackages= {"com.fengli.video", "org.n3r.idworker"})
 public class Application {
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
-	
+
 }

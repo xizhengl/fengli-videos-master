@@ -19,13 +19,21 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * 用户注册登录接口
+ * @author Administrator
+ */
 @RestController
 @Api(value="用户注册登录的接口", tags= {"注册和登录的controller"})
 public class RegistLoginController extends BasicController {
 	
+	private final UserService userService;
+
 	@Autowired
-	private UserService userService;
-	
+	public RegistLoginController(UserService userService) {
+		this.userService = userService;
+	}
+
 	@ApiOperation(value="用户注册", notes="用户注册的接口")
 	@PostMapping("/regist")
 	public IMoocJSONResult regist(@RequestBody Users user) throws Exception {
@@ -59,9 +67,9 @@ public class RegistLoginController extends BasicController {
 //		BeanUtils.copyProperties(user, userVO);
 //		userVO.setUserToken(uniqueToken);
 		
-		UsersVO userVO = setUserRedisSessionToken(user);
+//		UsersVO userVO = setUserRedisSessionToken(user);
 		
-		return IMoocJSONResult.ok(userVO);
+		return IMoocJSONResult.ok(user);
 	}
 	
 	public UsersVO setUserRedisSessionToken(Users userModel) {
@@ -94,8 +102,8 @@ public class RegistLoginController extends BasicController {
 		// 3. 返回
 		if (userResult != null) {
 			userResult.setPassword("");
-			UsersVO userVO = setUserRedisSessionToken(userResult);
-			return IMoocJSONResult.ok(userVO);
+//			UsersVO userVO = setUserRedisSessionToken(userResult);
+			return IMoocJSONResult.ok(user);
 		} else {
 			return IMoocJSONResult.errorMsg("用户名或密码不正确, 请重试...");
 		}
