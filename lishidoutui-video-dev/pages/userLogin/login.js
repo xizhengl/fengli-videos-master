@@ -2,9 +2,15 @@ const app = getApp()
 
 Page({
   data: {
+    username: ""
   },
 
   onLoad: function (params) {
+    if(app.userInfo != null){
+      this.setData({
+        username: app.userInfo.username
+      })
+    }
   },
 
   // 登录  
@@ -45,23 +51,23 @@ Page({
             wx.showToast({
               title: '登录成功',
               icon: 'success',
-              duration: 20+0
+              duration: 1000
             });
-            app.userInfo = res.data.data;
-            // // fixme 修改原有的全局对象为本地缓存
-            // app.setGlobalUserInfo(res.data.data);
-            // // 页面跳转
+            // app.userInfo = res.data.data;
+            // fixme 修改原有的全局对象为本地缓存
+            app.setGlobalUserInfo(res.data.data);
+            // 页面跳转
 
-            // var redirectUrl = me.redirectUrl;
-            // if (redirectUrl != null && redirectUrl != undefined && redirectUrl != '') {
-            //   wx.redirectTo({
-            //     url: redirectUrl,
-            //   })
-            // } else {
-            //   wx.redirectTo({
-            //     url: '../mine/mine',
-            //   })
-            // }
+            var redirectUrl = me.redirectUrl;
+            if (redirectUrl != null && redirectUrl != undefined && redirectUrl != '') {
+              wx.redirectTo({
+                url: redirectUrl,
+              })
+            } else {
+              wx.redirectTo({
+                url: '../mine/mine',
+              })
+            }
             
           } else if (res.data.status == 500) {
             // 失败弹出框

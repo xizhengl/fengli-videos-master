@@ -62,14 +62,14 @@ public class RegistLoginController extends BasicController {
 		
 //		String uniqueToken = UUID.randomUUID().toString();
 //		redis.set(USER_REDIS_SESSION + ":" + user.getId(), uniqueToken, 1000 * 60 * 30);
-//		
+
 //		UsersVO userVO = new UsersVO();
 //		BeanUtils.copyProperties(user, userVO);
 //		userVO.setUserToken(uniqueToken);
 		
-//		UsersVO userVO = setUserRedisSessionToken(user);
+		UsersVO userVO = setUserRedisSessionToken(user);
 		
-		return IMoocJSONResult.ok(user);
+		return IMoocJSONResult.ok(userVO);
 	}
 	
 	public UsersVO setUserRedisSessionToken(Users userModel) {
@@ -102,8 +102,8 @@ public class RegistLoginController extends BasicController {
 		// 3. 返回
 		if (userResult != null) {
 			userResult.setPassword("");
-//			UsersVO userVO = setUserRedisSessionToken(userResult);
-			return IMoocJSONResult.ok(user);
+			UsersVO userVO = setUserRedisSessionToken(userResult);
+			return IMoocJSONResult.ok(userVO);
 		} else {
 			return IMoocJSONResult.errorMsg("用户名或密码不正确, 请重试...");
 		}

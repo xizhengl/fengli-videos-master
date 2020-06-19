@@ -60,13 +60,13 @@ public class VideoController extends BasicController {
 				dataType="String", paramType="form")
 	})
 	@PostMapping(value="/upload", headers="content-type=multipart/form-data")
-	public IMoocJSONResult upload(String userId, 
+	public IMoocJSONResult upload(String userId,
 				String bgmId, double videoSeconds, 
 				int videoWidth, int videoHeight,
 				String desc,
 				@ApiParam(value="短视频", required=true)
 				MultipartFile file) throws Exception {
-		
+
 		if (StringUtils.isBlank(userId)) {
 			return IMoocJSONResult.errorMsg("用户id不能为空...");
 		}
@@ -86,10 +86,10 @@ public class VideoController extends BasicController {
 				
 				String fileName = file.getOriginalFilename();
 				// abc.mp4
-				String arrayFilenameItem[] =  fileName.split("\\.");
-				String fileNamePrefix = "";
+				String[] arrayFilenameItem =  fileName.split("\\.");
+				StringBuilder fileNamePrefix = new StringBuilder();
 				for (int i = 0 ; i < arrayFilenameItem.length-1 ; i ++) {
-					fileNamePrefix += arrayFilenameItem[i];
+					fileNamePrefix.append(arrayFilenameItem[i]);
 				}
 				// fix bug: 解决小程序端OK，PC端不OK的bug，原因：PC端和小程序端对临时视频的命名不同
 //				String fileNamePrefix = fileName.split("\\.")[0];
@@ -106,7 +106,7 @@ public class VideoController extends BasicController {
 						// 创建父文件夹
 						outFile.getParentFile().mkdirs();
 					}
-					
+
 					fileOutputStream = new FileOutputStream(outFile);
 					inputStream = file.getInputStream();
 					IOUtils.copy(inputStream, fileOutputStream);
@@ -160,7 +160,9 @@ public class VideoController extends BasicController {
 		video.setCreateTime(new Date());
 		
 		String videoId = videoService.saveVideo(video);
-		
+
+		System.out.println(video);
+
 		return IMoocJSONResult.ok(videoId);
 	}
 	
@@ -171,7 +173,7 @@ public class VideoController extends BasicController {
 		@ApiImplicitParam(name="videoId", value="视频主键id", required=true, 
 				dataType="String", paramType="form")
 	})
-	@PostMapping(value="/uploadCover", headers="content-type=multipart/form-data")
+	@PostMapping(value="/ 	", headers="content-type=multipart/form-data")
 	public IMoocJSONResult uploadCover(String userId,
 				String videoId,
 				@ApiParam(value="视频封面", required=true)

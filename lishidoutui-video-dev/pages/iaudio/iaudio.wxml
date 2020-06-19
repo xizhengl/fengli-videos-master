@@ -1,0 +1,12 @@
+<view class='audio-wapper'>
+
+    <image src='/pages/static/{{ico}}.png' class='ico' bindtap='display'></image>
+
+    <view class='words'>
+        <view class='song-name'>{{songName}}</view>
+        <view class='singer'>{{singer}}</view>
+    </view>
+
+    <view class='duration'>{{duration}}</view>
+
+</view>
