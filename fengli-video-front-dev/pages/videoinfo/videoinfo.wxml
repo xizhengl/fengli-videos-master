@@ -1,6 +1,6 @@
 <view style='width:100%;height:100%;'>
 
-	<video id="myVideo" src="http://8hhy88.natappfree.cc/200622FKS23GKF3C/video/tvc-v3_0b9db49_Trim2.mp4" muted="{{true}}" controls="{{false}}" autoplay="{{true}}" loop="{{true}}" enable-progress-gesture="{{false}}" style='width:100%;height:100%;' objectFit='{{cover}}'>
+	<video id="myVideo" src="{{src}}" muted="{{true}}" controls="{{false}}" autoplay="{{true}}" loop="{{true}}" enable-progress-gesture="{{false}}" style='width:100%;height:100%;' objectFit='{{cover}}'>
 
 		<cover-view class='container'>
 			<!-- 上传视频 -->
@@ -16,7 +16,7 @@
 
 		<cover-view class='container-me'>
 			<!-- 头像 -->
-			<cover-image class="face" src='http://8hhy88.natappfree.cc/200622FKS23GKF3C/face/wxb9cb2258cf0e244f.o6zAJs66hhpsiijNW5xwnrb0im6Q.OOExuvS7od3dc761d91996099a64ae874ad3fc1f26ef.jpg' bindtap='showPublisher'></cover-image>
+			<cover-image class="face" src='{{serverUrl}}{{publisher.faceImage}}' bindtap='showPublisher'></cover-image>
 
 
 			<!-- 喜欢收藏按钮 -->
@@ -26,6 +26,7 @@
 			<block wx:else>
 				<cover-image class="size-me" src='/resource/images/unlike.png' style='margin-top:30rpx;' bindtap='likeVideoOrNot'></cover-image>
 			</block>
+
 
 			<!-- 评论按钮 -->
 			<cover-image class="size-me" src='/resource/images/comments.png' style='margin-top:30rpx;' bindtap='leaveComment'></cover-image>
@@ -40,7 +41,6 @@
 			<cover-view>@{{publisher.nickname}}</cover-view>
 
 			<cover-view class='video-desc'>{{videoInfo.videoDesc}}</cover-view>
-
 
 
 		</cover-view>
@@ -68,7 +68,7 @@
 	</view>
 
 	<block wx:for="{{commentsList}}">
-		<view class='comments-all' bindtap='replyFocus' data-fatherCommentId='{{item.id}}' data-toUserId='{{item.fromUsFerId}}' data-toNickname='{{item.nickname}}'>
+		<view class='comments-all' bindtap='replyFocus' data-fatherCommentId='{{item.id}}' data-toUserId='{{item.fromUserId}}' data-toNickname='{{item.nickname}}'>
 			<view class='container-comments'>
 				<image class="face-comments" src='{{serverUrl}}{{item.faceImage}}'></image>
 				<view class='nickname-comments'>

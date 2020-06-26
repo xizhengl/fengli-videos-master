@@ -53,10 +53,10 @@ Page({
       userId: userId
     })
 
-
     wx.showLoading({
       title: '请等待...',
     });
+
     var serverUrl = app.serverUrl;
     // 调用后端
     wx.request({
@@ -100,9 +100,10 @@ Page({
       }
     })
 
-    // me.getMyVideoList(1);
+    me.getMyVideoList(1);
   },
 
+  // 点击关注我
   followMe: function (e) {
     var me = this;
 
@@ -145,7 +146,6 @@ Page({
       }
     })
   },
-
 
   // 注销
   logout: function () {
@@ -255,53 +255,14 @@ Page({
     })
   },
 
+  // 上传视频
   uploadVideo: function () {
     // fixme 视频上传复用
-    // videoUtil.uploadVideo();
-    // 以下是原来的代码，不删除，便于参照
-    var me = this;
-
-    wx.chooseVideo({
-      sourceType: ['album'],
-      success: function (res) {
-        console.log(res);
-
-        var duration = res.duration;
-        var tmpHeight = res.height;
-        var tmpWidth = res.width;
-        var tmpVideoUrl = res.tempFilePath;
-        var tmpCoverUrl = res.thumbTempFilePath;
-
-        if (duration > 11) {
-          wx.showToast({
-            title: '视频长度不能超过10秒...',
-            icon: "none",
-            duration: 2500
-          })
-        } else if (duration < 1) {
-          wx.showToast({
-            title: '视频长度太短，请上传超过1秒的视频...',
-            icon: "none",
-            duration: 2500
-          })
-        } else {
-          // 打开选择bgm的页面
-          wx.navigateTo({
-            url: '../chooseBgm/chooseBgm?duration=' + duration
-            + "&tmpHeight=" + tmpHeight
-            + "&tmpWidth=" + tmpWidth
-            + "&tmpVideoUrl=" + tmpVideoUrl
-            + "&tmpCoverUrl=" + tmpCoverUrl
-            ,
-          })
-        }
-
-      }
-    })
-
+    videoUtil.uploadVideo();
   },
 
 
+  // 主页 -> 点击选择我的作品
   doSelectWork: function () {
     this.setData({
       isSelectedWork: "video-info-selected",
@@ -328,6 +289,7 @@ Page({
     this.getMyVideoList(1);
   },
 
+  // 主页 -> 选择我的喜欢（收藏）
   doSelectLike: function () {
     this.setData({
       isSelectedWork: "",
@@ -354,6 +316,7 @@ Page({
     this.getMyLikesList(1);
   },
 
+  // 主页 -> 我关注的视频
   doSelectFollow: function () {
     this.setData({
       isSelectedWork: "",
@@ -380,6 +343,7 @@ Page({
     this.getMyFollowList(1)
   },
 
+  // 获取我的作品的列表
   getMyVideoList: function (page) {
     var me = this;
 
@@ -412,6 +376,7 @@ Page({
     })
   },
 
+  // 获取我喜欢视频的列表
   getMyLikesList: function (page) {
     var me = this;
     var userId = me.data.userId;
@@ -442,6 +407,7 @@ Page({
     })
   },
 
+  // 获取我关注的视频列表
   getMyFollowList: function (page) {
     var me = this;
     var userId = me.data.userId;

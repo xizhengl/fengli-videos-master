@@ -1,5 +1,4 @@
 var videoUtil = require('../../utils/videoUtil.js')
-
 const app = getApp()
 
 Page({
@@ -8,6 +7,9 @@ Page({
     videoId: "",
     src: "",
     videoInfo: {},
+
+    videourl: "",
+    atuhorImageUrl: "",
 
     userLikeVideo: false,
 
@@ -49,6 +51,8 @@ Page({
     if (user != null && user != undefined && user != '') {
       loginUserId = user.id;
     }
+
+    // 查询发布者信息
     wx.request({
       url: serverUrl + '/user/queryPublisher?loginUserId=' + loginUserId + "&videoId=" + videoInfo.id + "&publishUserId=" + videoInfo.userId,
       method: 'POST',
@@ -68,23 +72,25 @@ Page({
 
     me.getCommentsList(1);
   },
-
   onShow: function () {
     var me = this;
     me.videoCtx.play();
   },
-
   onHide: function () {
     var me = this;
     me.videoCtx.pause();
   },
 
+
+  
+  // 点击搜索
   showSearch: function () {
     wx.navigateTo({
       url: '../searchVideo/searchVideo',
     })
   },
 
+  // 点击作者头像 
   showPublisher: function () {
     var me = this;
 
@@ -106,6 +112,7 @@ Page({
   },
 
 
+  // 上传视频
   upload: function () {
     var me = this;
 
@@ -124,12 +131,14 @@ Page({
     
   },
 
+  // 视频主页
   showIndex: function () {
     wx.redirectTo({
       url: '../index/index',
     })
   },
 
+  // 查看个人主页
   showMine: function () {
     var user = app.getGlobalUserInfo();
 
@@ -144,6 +153,7 @@ Page({
     }
   },
 
+  // 点击喜欢或者不喜欢视频
   likeVideoOrNot: function () {
     var me = this;
     var videoInfo = me.data.videoInfo;
@@ -160,7 +170,6 @@ Page({
       if (userLikeVideo) {
         url = '/video/userUnLike?userId=' + user.id + '&videoId=' + videoInfo.id + '&videoCreaterId=' + videoInfo.userId;
       }
-
       var serverUrl = app.serverUrl;
       wx.showLoading({
         title: '...',
@@ -180,11 +189,10 @@ Page({
           });
         }
       })
-
-
     }
   },
 
+  // 点击分享
   shareMe: function() {
     var me = this;
     var user = app.getGlobalUserInfo();
@@ -241,6 +249,7 @@ Page({
     })
   },
 
+  // 官方API 转发
   onShareAppMessage: function (res) {
     
     var me = this;
@@ -253,12 +262,14 @@ Page({
   },
 
 
+  // 点击评论按钮 获取焦点
   leaveComment: function() {
     this.setData({
       commentFocus: true
     });
   },
 
+  // 点击回复某人留言
   replyFocus: function(e) {
     var fatherCommentId = e.currentTarget.dataset.fathercommentid;
     var toUserId = e.currentTarget.dataset.touserid;
@@ -272,6 +283,7 @@ Page({
     });
   },
 
+  // 点击提交
   saveComment:function(e) {
     var me = this;
     var content = e.detail.value;
@@ -309,6 +321,7 @@ Page({
           console.log(res.data)
           wx.hideLoading();
 
+          // 清空
           me.setData({
             contentValue: "",
             commentsList: [],
@@ -325,10 +338,7 @@ Page({
     }
   },
 
-// commentsPage: 1,
-//   commentsTotalPage: 1,
-//   commentsList: []
-
+  // 获取留言列表
     getCommentsList: function(page) {
       var me = this;
 
@@ -352,6 +362,7 @@ Page({
       })
     },
 
+
     onReachBottom: function() {
       var me = this;
       var currentPage = me.data.commentsPage;
@@ -361,5 +372,6 @@ Page({
       }
       var page = currentPage + 1;
       me.getCommentsList(page);
-    }
+    },
+
 })
