@@ -112,8 +112,16 @@ public class UserController extends BasicController {
 		
 		return FengliJsonResult.ok(userVO);
 	}
-	
-	
+
+
+	/**
+	 * 查询视频发布者信息
+	 * @param loginUserId 登陆用户id
+	 * @param videoId 视频id
+	 * @param publishUserId 发布者id
+	 * @return 通用JSON 返回类
+	 * @throws Exception 异常
+	 */
 	@PostMapping("/queryPublisher")
 	public FengliJsonResult queryPublisher(String loginUserId, String videoId, 
 			String publishUserId) throws Exception {
@@ -136,7 +144,14 @@ public class UserController extends BasicController {
 		
 		return FengliJsonResult.ok(bean);
 	}
-	
+
+	/**
+	 * 建立关注关系
+	 * @param userId 发布视频用户id
+	 * @param fanId 登录用户id
+	 * @return 无
+	 * @throws Exception 异常
+	 */
 	@PostMapping("/beyourfans")
 	public FengliJsonResult beyourfans(String userId, String fanId) throws Exception {
 		
@@ -148,7 +163,14 @@ public class UserController extends BasicController {
 		
 		return FengliJsonResult.ok("关注成功...");
 	}
-	
+
+	/**
+	 * 取消建立关注关系
+	 * @param userId 发布视频用户id
+	 * @param fanId 登录用户id
+	 * @return 无
+	 * @throws Exception 异常
+	 */
 	@PostMapping("/dontbeyourfans")
 	public FengliJsonResult dontbeyourfans(String userId, String fanId) throws Exception {
 		

@@ -296,25 +296,54 @@ public class VideoController extends BasicController {
 		
 		return FengliJsonResult.ok(videosList);
 	}
-	
+
+	/**
+	 *  查询热搜词
+	 * @return
+	 * @throws Exception
+	 */
 	@PostMapping(value="/hot")
 	public FengliJsonResult hot() throws Exception {
 		return FengliJsonResult.ok(videoService.getHotwords());
 	}
-	
+
+	/**
+	 * 用户喜欢视频
+	 * @param userId 用户id
+	 * @param videoId 视频id
+	 * @param videoCreaterId 视频作者id
+	 * @return 统一JSON
+	 * @throws Exception 异常
+	 */
 	@PostMapping(value="/userLike")
 	public FengliJsonResult userLike(String userId, String videoId, String videoCreaterId) 
 			throws Exception {
 		videoService.userLikeVideo(userId, videoId, videoCreaterId);
 		return FengliJsonResult.ok();
 	}
-	
+
+	/**
+	 * 用户不喜欢视频
+	 * @param userId 用户id
+	 * @param videoId 视频id
+	 * @param videoCreaterId 视频作者id
+	 * @return 统一JSON
+	 * @throws Exception 异常
+	 */
 	@PostMapping(value="/userUnLike")
 	public FengliJsonResult userUnLike(String userId, String videoId, String videoCreaterId) throws Exception {
 		videoService.userUnLikeVideo(userId, videoId, videoCreaterId);
 		return FengliJsonResult.ok();
 	}
-	
+
+	/**
+	 * 保存留言
+	 * @param comment 留言类
+	 * @param fatherCommentId 留言父用户id
+	 * @param toUserId 留言用户id
+	 * @return JSON
+	 * @throws Exception
+	 */
 	@PostMapping("/saveComment")
 	public FengliJsonResult saveComment(@RequestBody Comments comment, 
 			String fatherCommentId, String toUserId) throws Exception {
@@ -325,7 +354,15 @@ public class VideoController extends BasicController {
 		videoService.saveComment(comment);
 		return FengliJsonResult.ok();
 	}
-	
+
+	/**
+	 * 获取留言列表
+	 * @param videoId 视频id
+	 * @param page 页码
+	 * @param pageSize 页面条数
+	 * @return 统一JSON
+	 * @throws Exception 异常
+	 */
 	@PostMapping("/getVideoComments")
 	public FengliJsonResult getVideoComments(String videoId, Integer page, Integer pageSize) throws Exception {
 		
