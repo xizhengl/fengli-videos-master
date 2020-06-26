@@ -1,6 +1,6 @@
 //app.js
 App({
-  serverUrl:"http://8hhy88.natappfree.cc",
+  serverUrl:"http://e6hv7z.natappfree.cc",
   userInfo: null,
   
   setGlobalUserInfo: function(user) {
@@ -10,4 +10,17 @@ App({
   getGlobalUserInfo: function () {
     return wx.getStorageSync("userInfo");
   },
+
+  reportReasonArray: [
+    "色情低俗",
+    "政治敏感",
+    "涉嫌诈骗",
+    "辱骂谩骂",
+    "广告垃圾",
+    "诱导分享",
+    "引人不适",
+    "过于暴力",
+    "违法违纪",
+    "其它原因"
+  ]
 })
