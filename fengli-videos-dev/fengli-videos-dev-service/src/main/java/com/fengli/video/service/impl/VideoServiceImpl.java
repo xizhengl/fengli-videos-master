@@ -12,12 +12,12 @@ import org.springframework.transaction.annotation.Transactional;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.fengli.video.mapper.CommentsMapper;
-import com.fengli.video.mapper.CommentsMapperCustom;
+import com.fengli.video.mapper.CommentsCustomMapper;
 import com.fengli.video.mapper.SearchRecordsMapper;
 import com.fengli.video.mapper.UsersLikeVideosMapper;
 import com.fengli.video.mapper.UsersMapper;
 import com.fengli.video.mapper.VideosMapper;
-import com.fengli.video.mapper.VideosMapperCustom;
+import com.fengli.video.mapper.VideosCustomMapper;
 import com.fengli.video.pojo.Comments;
 import com.fengli.video.pojo.SearchRecords;
 import com.fengli.video.pojo.UsersLikeVideos;
@@ -41,7 +41,7 @@ public class VideoServiceImpl implements VideoService {
 	private UsersMapper usersMapper;
 	
 	@Autowired
-	private VideosMapperCustom videosMapperCustom;
+	private VideosCustomMapper videosCustomMapper;
 	
 	@Autowired
 	private SearchRecordsMapper searchRecordsMapper; 
@@ -53,7 +53,7 @@ public class VideoServiceImpl implements VideoService {
 	private CommentsMapper commentMapper; 
 	
 	@Autowired
-	private CommentsMapperCustom commentMapperCustom;
+	private CommentsCustomMapper commentMapperCustom;
 	
 	@Autowired
 	private Sid sid;
@@ -96,7 +96,7 @@ public class VideoServiceImpl implements VideoService {
 		}
 		
 		PageHelper.startPage(page, pageSize);
-		List<VideosVO> list = videosMapperCustom.queryAllVideos(desc, userId);
+		List<VideosVO> list = videosCustomMapper.queryAllVideos(desc, userId);
 		
 		PageInfo<VideosVO> pageList = new PageInfo<>(list);
 		
@@ -113,7 +113,7 @@ public class VideoServiceImpl implements VideoService {
 	@Override
 	public PagedResult queryMyLikeVideos(String userId, Integer page, Integer pageSize) {
 		PageHelper.startPage(page, pageSize);
-		List<VideosVO> list = videosMapperCustom.queryMyLikeVideos(userId);
+		List<VideosVO> list = videosCustomMapper.queryMyLikeVideos(userId);
 				
 		PageInfo<VideosVO> pageList = new PageInfo<>(list);
 		
@@ -130,7 +130,7 @@ public class VideoServiceImpl implements VideoService {
 	@Override
 	public PagedResult queryMyFollowVideos(String userId, Integer page, Integer pageSize) {
 		PageHelper.startPage(page, pageSize);
-		List<VideosVO> list = videosMapperCustom.queryMyFollowVideos(userId);
+		List<VideosVO> list = videosCustomMapper.queryMyFollowVideos(userId);
 				
 		PageInfo<VideosVO> pageList = new PageInfo<>(list);
 		
@@ -161,7 +161,7 @@ public class VideoServiceImpl implements VideoService {
 		usersLikeVideosMapper.insert(ulv);
 		
 		// 2. 视频喜欢数量累加
-		videosMapperCustom.addVideoLikeCount(videoId);
+		videosCustomMapper.addVideoLikeCount(videoId);
 		
 		// 3. 用户受喜欢数量的累加
 		usersMapper.addReceiveLikeCount(videoCreaterId);
@@ -181,7 +181,7 @@ public class VideoServiceImpl implements VideoService {
 		usersLikeVideosMapper.deleteByExample(example);
 		
 		// 2. 视频喜欢数量累减
-		videosMapperCustom.reduceVideoLikeCount(videoId);
+		videosCustomMapper.reduceVideoLikeCount(videoId);
 		
 		// 3. 用户受喜欢数量的累减
 		usersMapper.reduceReceiveLikeCount(videoCreaterId);

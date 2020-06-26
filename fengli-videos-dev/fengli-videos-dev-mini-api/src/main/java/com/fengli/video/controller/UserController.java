@@ -20,7 +20,7 @@ import com.fengli.video.pojo.UsersReport;
 import com.fengli.video.pojo.vo.PublisherVideo;
 import com.fengli.video.pojo.vo.UsersVO;
 import com.fengli.video.service.UserService;
-import com.fengli.video.utils.IMoocJSONResult;
+import com.fengli.video.utils.FengliJsonResult;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -38,11 +38,11 @@ public class UserController extends BasicController {
 	@ApiImplicitParam(name="userId", value="用户id", required=true, 
 						dataType="String", paramType="query")
 	@PostMapping("/uploadFace")
-	public IMoocJSONResult uploadFace(String userId, 
+	public FengliJsonResult uploadFace(String userId, 
 				@RequestParam("file") MultipartFile[] files) throws Exception {
 		
 		if (StringUtils.isBlank(userId)) {
-			return IMoocJSONResult.errorMsg("用户id不能为空...");
+			return FengliJsonResult.errorMsg("用户id不能为空...");
 		}
 		
 		// 文件保存的命名空间
@@ -74,11 +74,11 @@ public class UserController extends BasicController {
 				}
 				
 			} else {
-				return IMoocJSONResult.errorMsg("上传出错...");
+				return FengliJsonResult.errorMsg("上传出错...");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return IMoocJSONResult.errorMsg("上传出错...");
+			return FengliJsonResult.errorMsg("上传出错...");
 		} finally {
 			if (fileOutputStream != null) {
 				fileOutputStream.flush();
@@ -91,17 +91,17 @@ public class UserController extends BasicController {
 		user.setFaceImage(uploadPathDB);
 		userService.updateUserInfo(user);
 		
-		return IMoocJSONResult.ok(uploadPathDB);
+		return FengliJsonResult.ok(uploadPathDB);
 	}
 	
 	@ApiOperation(value="查询用户信息", notes="查询用户信息的接口")
 	@ApiImplicitParam(name="userId", value="用户id", required=true, 
 						dataType="String", paramType="query")
 	@PostMapping("/query")
-	public IMoocJSONResult query(String userId, String fanId) {
+	public FengliJsonResult query(String userId, String fanId) {
 		
 		if (StringUtils.isBlank(userId)) {
-			return IMoocJSONResult.errorMsg("用户id不能为空...");
+			return FengliJsonResult.errorMsg("用户id不能为空...");
 		}
 		
 		Users userInfo = userService.queryUserInfo(userId);
@@ -110,16 +110,16 @@ public class UserController extends BasicController {
 		
 		userVO.setFollow(userService.queryIfFollow(userId, fanId));
 		
-		return IMoocJSONResult.ok(userVO);
+		return FengliJsonResult.ok(userVO);
 	}
 	
 	
 	@PostMapping("/queryPublisher")
-	public IMoocJSONResult queryPublisher(String loginUserId, String videoId, 
+	public FengliJsonResult queryPublisher(String loginUserId, String videoId, 
 			String publishUserId) throws Exception {
 		
 		if (StringUtils.isBlank(publishUserId)) {
-			return IMoocJSONResult.errorMsg("");
+			return FengliJsonResult.errorMsg("");
 		}
 		
 		// 1. 查询视频发布者的信息
@@ -134,40 +134,40 @@ public class UserController extends BasicController {
 		bean.setPublisher(publisher);
 		bean.setUserLikeVideo(userLikeVideo);
 		
-		return IMoocJSONResult.ok(bean);
+		return FengliJsonResult.ok(bean);
 	}
 	
 	@PostMapping("/beyourfans")
-	public IMoocJSONResult beyourfans(String userId, String fanId) throws Exception {
+	public FengliJsonResult beyourfans(String userId, String fanId) throws Exception {
 		
 		if (StringUtils.isBlank(userId) || StringUtils.isBlank(fanId)) {
-			return IMoocJSONResult.errorMsg("");
+			return FengliJsonResult.errorMsg("");
 		}
 		
 		userService.saveUserFanRelation(userId, fanId);
 		
-		return IMoocJSONResult.ok("关注成功...");
+		return FengliJsonResult.ok("关注成功...");
 	}
 	
 	@PostMapping("/dontbeyourfans")
-	public IMoocJSONResult dontbeyourfans(String userId, String fanId) throws Exception {
+	public FengliJsonResult dontbeyourfans(String userId, String fanId) throws Exception {
 		
 		if (StringUtils.isBlank(userId) || StringUtils.isBlank(fanId)) {
-			return IMoocJSONResult.errorMsg("");
+			return FengliJsonResult.errorMsg("");
 		}
 		
 		userService.deleteUserFanRelation(userId, fanId);
 		
-		return IMoocJSONResult.ok("取消关注成功...");
+		return FengliJsonResult.ok("取消关注成功...");
 	}
 	
 	@PostMapping("/reportUser")
-	public IMoocJSONResult reportUser(@RequestBody UsersReport usersReport) throws Exception {
+	public FengliJsonResult reportUser(@RequestBody UsersReport usersReport) throws Exception {
 		
 		// 保存举报信息
 		userService.reportUser(usersReport);
 		
-		return IMoocJSONResult.errorMsg("举报成功...有你平台变得更美好...");
+		return FengliJsonResult.errorMsg("举报成功...有你平台变得更美好...");
 	}
 	
 }

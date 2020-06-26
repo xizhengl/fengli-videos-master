@@ -1,7 +1,7 @@
 package com.fengli.video.controller;
 
 import com.fengli.video.service.BgmService;
-import com.fengli.video.utils.IMoocJSONResult;
+import com.fengli.video.utils.FengliJsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,8 +21,8 @@ public class BgmController {
 	
 	@ApiOperation(value="获取背景音乐列表", notes="获取背景音乐列表的接口")
 	@PostMapping("/list")
-	public IMoocJSONResult list() {
-		return IMoocJSONResult.ok(bgmService.queryBgmList());
+	public FengliJsonResult list() {
+		return FengliJsonResult.ok(bgmService.queryBgmList());
 	}
 	
 }

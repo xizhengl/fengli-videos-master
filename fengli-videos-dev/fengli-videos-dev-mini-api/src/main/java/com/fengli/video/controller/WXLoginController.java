@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fengli.video.pojo.Users;
 import com.fengli.video.pojo.vo.UsersVO;
 import com.fengli.video.utils.HttpClientUtil;
-import com.fengli.video.utils.IMoocJSONResult;
+import com.fengli.video.utils.FengliJsonResult;
 import com.fengli.video.utils.JsonUtils;
 
 @RestController
@@ -28,7 +28,7 @@ public class WXLoginController extends BasicController {
 	}
 	
 	@PostMapping("/wxLogin")
-	public IMoocJSONResult wxLogin(String code) throws Exception {
+	public FengliJsonResult wxLogin(String code) throws Exception {
 		
 		System.out.println(code);
 		
@@ -50,7 +50,7 @@ public class WXLoginController extends BasicController {
 								model.getSession_key(), 
 								1000 * 60 * 30);
 		
-		return IMoocJSONResult.ok();
+		return FengliJsonResult.ok();
 	}
 	
 }

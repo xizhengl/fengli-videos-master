@@ -3,19 +3,27 @@ package com.fengli.video.controller.interceptor;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fengli.video.utils.FengliJsonResult;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fengli.video.utils.IMoocJSONResult;
+import com.fengli.video.utils.FengliJsonResult;
 import com.fengli.video.utils.JsonUtils;
 import com.fengli.video.utils.RedisOperator;
 
+/**
+ *  自定义拦截器
+ *
+ * @author Administrator
+ */
 public class MiniInterceptor implements HandlerInterceptor {
 
 	@Autowired
@@ -35,18 +43,18 @@ public class MiniInterceptor implements HandlerInterceptor {
 			String uniqueToken = redis.get(USER_REDIS_SESSION + ":" + userId);
 			if (StringUtils.isEmpty(uniqueToken) && StringUtils.isBlank(uniqueToken)) {
 				System.out.println("请登录...");
-				returnErrorResponse(response, new IMoocJSONResult().errorTokenMsg("请登录..."));
+				returnErrorResponse(response, new FengliJsonResult().errorTokenMsg("请登录..."));
 				return false;
 			} else {
 				if (!uniqueToken.equals(userToken)) {
 					System.out.println("账号被挤出...");
-					returnErrorResponse(response, new IMoocJSONResult().errorTokenMsg("账号被挤出..."));
+					returnErrorResponse(response, new FengliJsonResult().errorTokenMsg("账号被挤出..."));
 					return false;
 				}
 			}
 		} else {
 			System.out.println("请登录...");
-			returnErrorResponse(response, new IMoocJSONResult().errorTokenMsg("请登录..."));
+			returnErrorResponse(response, new FengliJsonResult().errorTokenMsg("请登录..."));
 			return false;
 		}
 		
@@ -58,15 +66,16 @@ public class MiniInterceptor implements HandlerInterceptor {
 		return true;
 	}
 	
-	public void returnErrorResponse(HttpServletResponse response, IMoocJSONResult result) 
-			throws IOException, UnsupportedEncodingException {
+	public void returnErrorResponse(HttpServletResponse response, FengliJsonResult result) 
+			throws IOException {
 		OutputStream out=null;
 		try{
 		    response.setCharacterEncoding("utf-8");
 		    response.setContentType("text/json");
 		    out = response.getOutputStream();
-		    out.write(JsonUtils.objectToJson(result).getBytes("utf-8"));
+		    out.write(Objects.requireNonNull(JsonUtils.objectToJson(result)).getBytes(StandardCharsets.UTF_8));
 		    out.flush();
+
 		} finally{
 		    if(out!=null){
 		        out.close();

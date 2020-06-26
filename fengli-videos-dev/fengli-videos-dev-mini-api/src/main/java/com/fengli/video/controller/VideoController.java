@@ -22,7 +22,7 @@ import com.fengli.video.pojo.Videos;
 import com.fengli.video.service.BgmService;
 import com.fengli.video.service.VideoService;
 import com.fengli.video.utils.FetchVideoCover;
-import com.fengli.video.utils.IMoocJSONResult;
+import com.fengli.video.utils.FengliJsonResult;
 import com.fengli.video.utils.MergeVideoMp3;
 import com.fengli.video.utils.PagedResult;
 
@@ -60,7 +60,7 @@ public class VideoController extends BasicController {
 				dataType="String", paramType="form")
 	})
 	@PostMapping(value="/upload", headers="content-type=multipart/form-data")
-	public IMoocJSONResult upload(String userId,
+	public FengliJsonResult upload(String userId,
 				String bgmId, double videoSeconds, 
 				int videoWidth, int videoHeight,
 				String desc,
@@ -68,7 +68,7 @@ public class VideoController extends BasicController {
 				MultipartFile file) throws Exception {
 
 		if (StringUtils.isBlank(userId)) {
-			return IMoocJSONResult.errorMsg("用户id不能为空...");
+			return FengliJsonResult.errorMsg("用户id不能为空...");
 		}
 		
 		// 文件保存的命名空间
@@ -113,11 +113,11 @@ public class VideoController extends BasicController {
 				}
 				
 			} else {
-				return IMoocJSONResult.errorMsg("上传出错...");
+				return FengliJsonResult.errorMsg("上传出错...");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return IMoocJSONResult.errorMsg("上传出错...");
+			return FengliJsonResult.errorMsg("上传出错...");
 		} finally {
 			if (fileOutputStream != null) {
 				fileOutputStream.flush();
@@ -137,7 +137,9 @@ public class VideoController extends BasicController {
 			String videoOutputName = UUID.randomUUID().toString() + ".mp4";
 			uploadPathDB = "/" + userId + "/video" + "/" + videoOutputName;
 			finalVideoPath = FILE_SPACE + uploadPathDB;
-			tool.convertor(videoInputPath, mp3InputPath, videoSeconds, finalVideoPath);
+			String tempPath = FILE_SPACE + "/temp/" + userId + UUID.randomUUID().toString() + ".mp4";
+			tool.passVideo(videoInputPath, tempPath);
+			tool.convertor(tempPath, mp3InputPath, videoSeconds, finalVideoPath);
 		}
 		System.out.println("uploadPathDB=" + uploadPathDB);
 		System.out.println("finalVideoPath=" + finalVideoPath);
@@ -163,7 +165,7 @@ public class VideoController extends BasicController {
 
 		System.out.println(video);
 
-		return IMoocJSONResult.ok(videoId);
+		return FengliJsonResult.ok(videoId);
 	}
 	
 	@ApiOperation(value="上传封面", notes="上传封面的接口")
@@ -173,18 +175,16 @@ public class VideoController extends BasicController {
 		@ApiImplicitParam(name="videoId", value="视频主键id", required=true, 
 				dataType="String", paramType="form")
 	})
-	@PostMapping(value="/ 	", headers="content-type=multipart/form-data")
-	public IMoocJSONResult uploadCover(String userId,
+	@PostMapping(value="/uploadCover", headers="content-type=multipart/form-data")
+	public FengliJsonResult uploadCover(String userId,
 				String videoId,
 				@ApiParam(value="视频封面", required=true)
 				MultipartFile file) throws Exception {
 		
 		if (StringUtils.isBlank(videoId) || StringUtils.isBlank(userId)) {
-			return IMoocJSONResult.errorMsg("视频主键id和用户id不能为空...");
+			return FengliJsonResult.errorMsg("视频主键id和用户id不能为空...");
 		}
 		
-		// 文件保存的命名空间
-//		String fileSpace = "C:/fengli.video_videos_dev";
 		// 保存到数据库中的相对路径
 		String uploadPathDB = "/" + userId + "/video";
 		
@@ -214,11 +214,11 @@ public class VideoController extends BasicController {
 				}
 				
 			} else {
-				return IMoocJSONResult.errorMsg("上传出错...");
+				return FengliJsonResult.errorMsg("上传出错...");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			return IMoocJSONResult.errorMsg("上传出错...");
+			return FengliJsonResult.errorMsg("上传出错...");
 		} finally {
 			if (fileOutputStream != null) {
 				fileOutputStream.flush();
@@ -228,7 +228,7 @@ public class VideoController extends BasicController {
 		
 		videoService.updateVideo(videoId, uploadPathDB);
 		
-		return IMoocJSONResult.ok();
+		return FengliJsonResult.ok();
 	}
 	
 	/**
@@ -238,7 +238,7 @@ public class VideoController extends BasicController {
 	 * 				 0 - 不需要保存 ，或者为空的时候
 	 */
 	@PostMapping(value="/showAll")
-	public IMoocJSONResult showAll(@RequestBody Videos video, Integer isSaveRecord,
+	public FengliJsonResult showAll(@RequestBody Videos video, Integer isSaveRecord,
 			Integer page, Integer pageSize) throws Exception {
 		
 		if (page == null) {
@@ -250,17 +250,17 @@ public class VideoController extends BasicController {
 		}
 		
 		PagedResult result = videoService.getAllVideos(video, isSaveRecord, page, pageSize);
-		return IMoocJSONResult.ok(result);
+		return FengliJsonResult.ok(result);
 	}
 	
 	/**
 	 * @Description: 我关注的人发的视频
 	 */
 	@PostMapping("/showMyFollow")
-	public IMoocJSONResult showMyFollow(String userId, Integer page) throws Exception {
+	public FengliJsonResult showMyFollow(String userId, Integer page) throws Exception {
 		
 		if (StringUtils.isBlank(userId)) {
-			return IMoocJSONResult.ok();
+			return FengliJsonResult.ok();
 		}
 		
 		if (page == null) {
@@ -271,17 +271,17 @@ public class VideoController extends BasicController {
 		
 		PagedResult videosList = videoService.queryMyFollowVideos(userId, page, pageSize);
 		
-		return IMoocJSONResult.ok(videosList);
+		return FengliJsonResult.ok(videosList);
 	}
 	
 	/**
 	 * @Description: 我收藏(点赞)过的视频列表
 	 */
 	@PostMapping("/showMyLike")
-	public IMoocJSONResult showMyLike(String userId, Integer page, Integer pageSize) throws Exception {
+	public FengliJsonResult showMyLike(String userId, Integer page, Integer pageSize) throws Exception {
 		
 		if (StringUtils.isBlank(userId)) {
-			return IMoocJSONResult.ok();
+			return FengliJsonResult.ok();
 		}
 		
 		if (page == null) {
@@ -294,43 +294,43 @@ public class VideoController extends BasicController {
 		
 		PagedResult videosList = videoService.queryMyLikeVideos(userId, page, pageSize);
 		
-		return IMoocJSONResult.ok(videosList);
+		return FengliJsonResult.ok(videosList);
 	}
 	
 	@PostMapping(value="/hot")
-	public IMoocJSONResult hot() throws Exception {
-		return IMoocJSONResult.ok(videoService.getHotwords());
+	public FengliJsonResult hot() throws Exception {
+		return FengliJsonResult.ok(videoService.getHotwords());
 	}
 	
 	@PostMapping(value="/userLike")
-	public IMoocJSONResult userLike(String userId, String videoId, String videoCreaterId) 
+	public FengliJsonResult userLike(String userId, String videoId, String videoCreaterId) 
 			throws Exception {
 		videoService.userLikeVideo(userId, videoId, videoCreaterId);
-		return IMoocJSONResult.ok();
+		return FengliJsonResult.ok();
 	}
 	
 	@PostMapping(value="/userUnLike")
-	public IMoocJSONResult userUnLike(String userId, String videoId, String videoCreaterId) throws Exception {
+	public FengliJsonResult userUnLike(String userId, String videoId, String videoCreaterId) throws Exception {
 		videoService.userUnLikeVideo(userId, videoId, videoCreaterId);
-		return IMoocJSONResult.ok();
+		return FengliJsonResult.ok();
 	}
 	
 	@PostMapping("/saveComment")
-	public IMoocJSONResult saveComment(@RequestBody Comments comment, 
+	public FengliJsonResult saveComment(@RequestBody Comments comment, 
 			String fatherCommentId, String toUserId) throws Exception {
 		
 		comment.setFatherCommentId(fatherCommentId);
 		comment.setToUserId(toUserId);
 		
 		videoService.saveComment(comment);
-		return IMoocJSONResult.ok();
+		return FengliJsonResult.ok();
 	}
 	
 	@PostMapping("/getVideoComments")
-	public IMoocJSONResult getVideoComments(String videoId, Integer page, Integer pageSize) throws Exception {
+	public FengliJsonResult getVideoComments(String videoId, Integer page, Integer pageSize) throws Exception {
 		
 		if (StringUtils.isBlank(videoId)) {
-			return IMoocJSONResult.ok();
+			return FengliJsonResult.ok();
 		}
 		
 		// 分页查询视频列表，时间顺序倒序排序
@@ -344,7 +344,7 @@ public class VideoController extends BasicController {
 		
 		PagedResult list = videoService.getAllComments(videoId, page, pageSize);
 		
-		return IMoocJSONResult.ok(list);
+		return FengliJsonResult.ok(list);
 	}
 	
 }

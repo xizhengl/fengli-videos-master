@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fengli.video.pojo.Users;
 import com.fengli.video.service.UserService;
-import com.fengli.video.utils.IMoocJSONResult;
+import com.fengli.video.utils.FengliJsonResult;
 import com.fengli.video.utils.MD5Utils;
 
 import io.swagger.annotations.Api;
@@ -36,11 +36,11 @@ public class RegistLoginController extends BasicController {
 
 	@ApiOperation(value="用户注册", notes="用户注册的接口")
 	@PostMapping("/regist")
-	public IMoocJSONResult regist(@RequestBody Users user) throws Exception {
+	public FengliJsonResult regist(@RequestBody Users user) throws Exception {
 		
 		// 1. 判断用户名和密码必须不为空
 		if (StringUtils.isBlank(user.getUsername()) || StringUtils.isBlank(user.getPassword())) {
-			return IMoocJSONResult.errorMsg("用户名和密码不能为空");
+			return FengliJsonResult.errorMsg("用户名和密码不能为空");
 		}
 		
 		// 2. 判断用户名是否存在
@@ -55,7 +55,7 @@ public class RegistLoginController extends BasicController {
 			user.setFollowCounts(0);
 			userService.saveUser(user);
 		} else {
-			return IMoocJSONResult.errorMsg("用户名已经存在，请换一个再试");
+			return FengliJsonResult.errorMsg("用户名已经存在，请换一个再试");
 		}
 		
 		user.setPassword("");
@@ -69,7 +69,7 @@ public class RegistLoginController extends BasicController {
 		
 		UsersVO userVO = setUserRedisSessionToken(user);
 		
-		return IMoocJSONResult.ok(userVO);
+		return FengliJsonResult.ok(userVO);
 	}
 	
 	public UsersVO setUserRedisSessionToken(Users userModel) {
@@ -84,7 +84,7 @@ public class RegistLoginController extends BasicController {
 	
 	@ApiOperation(value="用户登录", notes="用户登录的接口")
 	@PostMapping("/login")
-	public IMoocJSONResult login(@RequestBody Users user) throws Exception {
+	public FengliJsonResult login(@RequestBody Users user) throws Exception {
 		String username = user.getUsername();
 		String password = user.getPassword();
 		
@@ -92,7 +92,7 @@ public class RegistLoginController extends BasicController {
 		
 		// 1. 判断用户名和密码必须不为空
 		if (StringUtils.isBlank(username) || StringUtils.isBlank(password)) {
-			return IMoocJSONResult.ok("用户名或密码不能为空...");
+			return FengliJsonResult.ok("用户名或密码不能为空...");
 		}
 		
 		// 2. 判断用户是否存在
@@ -103,9 +103,9 @@ public class RegistLoginController extends BasicController {
 		if (userResult != null) {
 			userResult.setPassword("");
 			UsersVO userVO = setUserRedisSessionToken(userResult);
-			return IMoocJSONResult.ok(userVO);
+			return FengliJsonResult.ok(userVO);
 		} else {
-			return IMoocJSONResult.errorMsg("用户名或密码不正确, 请重试...");
+			return FengliJsonResult.errorMsg("用户名或密码不正确, 请重试...");
 		}
 	}
 	
@@ -113,9 +113,9 @@ public class RegistLoginController extends BasicController {
 	@ApiImplicitParam(name="userId", value="用户id", required=true, 
 						dataType="String", paramType="query")
 	@PostMapping("/logout")
-	public IMoocJSONResult logout(String userId) throws Exception {
+	public FengliJsonResult logout(String userId) {
 		redis.del(USER_REDIS_SESSION + ":" + userId);
-		return IMoocJSONResult.ok();
+		return FengliJsonResult.ok();
 	}
 	
 }

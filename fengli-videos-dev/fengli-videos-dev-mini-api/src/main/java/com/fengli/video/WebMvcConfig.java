@@ -27,11 +27,20 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 //		return new ZKCuratorClient();
 //	}
 //
+
+	/**
+	 * 注册到Spring 中
+	 * @return
+	 */
 	@Bean
 	public MiniInterceptor miniInterceptor() {
 		return new MiniInterceptor();
 	}
 
+	/**
+	 * 注册拦截器
+	 * @param registry
+	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		

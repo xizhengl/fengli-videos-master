@@ -1,0 +1,31 @@
+  <view wx:for="{{videoList}}" class="item-container">  
+
+
+     <view style='width:{{screenWidth}}px;height:210px;' class='back-img'> 
+        <image src="{{serverUrl}}{{item.coverPath}}" style='width:{{screenWidth}}px;height:210px;' mode="aspectFit" bindtap='showVideoInfo' data-arrindex='{{index}}'></image>
+     </view> 
+
+
+    <view class="desc">
+        <view class="faceName">
+            <image class='myface' src="{{serverUrl}}{{item.faceImage}}"></image>
+            <view class="nickname">{{item.nickname}}</view>
+        </view>
+    </view>
+
+
+  </view>  
+
+ <!-- <view wx:for="{{videoList}}" class="item-container">   -->
+     <!-- <view style='width:{{screenWidth}}px;height:210px;' class='back-img'> 
+        <image src="http://localhost:8081//200622FKS23GKF3C/video/wxb9cb2258cf0e244fo6zAJs66hhpsiijNW5xwnrb0im6QG3dhZ7fZVR1J8ebafab6b7ecc37868500ce56eb6a11f.jpg" style='width:{{screenWidth}}px;height:210px;' mode="aspectFit" bindtap='showVideoInfo' data-arrindex='{{index}}'></image>
+     </view> 
+
+
+    <view class="desc">
+        <view class="faceName">
+            <image class='myface' src="http://localhost:8081//200622FKS23GKF3C/face/wxb9cb2258cf0e244f.o6zAJs66hhpsiijNW5xwnrb0im6Q.OOExuvS7od3dc761d91996099a64ae874ad3fc1f26ef.jpg"></image>
+            <view class="nickname">短视频测试者</view>
+        </view>
+    </view> -->
+  <!-- </view>   -->
