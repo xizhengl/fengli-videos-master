@@ -43,4 +43,5 @@
         <module>fengli-videos-dev-service</module>
         <module>fengli-videos-dev-mini-api</module>
     </modules>
+
 </project>

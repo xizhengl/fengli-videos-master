@@ -20,16 +20,17 @@ public class BasicController {
      */
     public static final String USER_REDIS_SESSION = "user-redis-session";
 
-    /**
-     *  文件保存的命名空间
-      */
-    public static final String FILE_SPACE = "F:\\fengli_videos_dev";
+        public static final String FILE_SPACE = "F:\\fengli_videos_dev";
+//        public static final String FILE_SPACE = "/root/fengli_videos_dev";
 
     //    public static final String FFMPEG_EXE = "F:\\ffmpeg-20200617-0b3bd00-win64-static\\bin\\ffmpeg.exe";
+        public static final String FFMPEG_EXE = "D:\\ffmpeg-20200620-29ea4e1-win64-static\\bin\\ffmpeg.exe";
+
     /**
-     * 笔记本 位置
+     * aliyun 服务器
      */
-    public static final String FFMPEG_EXE = "D:\\ffmpeg-20200620-29ea4e1-win64-static\\bin\\ffmpeg.exe";
+//    public static final String FFMPEG_EXE = "/usr/local/bin/ffmpeg";
+
 
     /**
      *  每页分页的记录数

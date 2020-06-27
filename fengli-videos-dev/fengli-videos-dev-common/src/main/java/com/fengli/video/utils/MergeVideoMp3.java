@@ -1,9 +1,6 @@
 package com.fengli.video.utils;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,19 +43,14 @@ public class MergeVideoMp3 {
 		InputStreamReader inputStreamReader = new InputStreamReader(errorStream);
 		BufferedReader br = new BufferedReader(inputStreamReader);
 
-		String line = "";
-		while ( (line = br.readLine()) != null ) {
+
+		if (new File(videoOutputPath).isFile()){
+			System.out.println("videoOutputPath1111111 is File----------------------------------------");
 		}
 
-		if (br != null) {
-			br.close();
-		}
-		if (inputStreamReader != null) {
-			inputStreamReader.close();
-		}
-		if (errorStream != null) {
-			errorStream.close();
-		}
+		br.close();
+		inputStreamReader.close();
+		errorStream.close();
 
 	}
 
@@ -68,7 +60,7 @@ public class MergeVideoMp3 {
 	 * @param mp3InputPath 音频磁盘路径
 	 * @param seconds 视频长度
 	 * @param videoOutputPath 合并后视频路径
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public void convertor(String videoInputPath, String mp3InputPath,
 			double seconds, String videoOutputPath) throws Exception {
@@ -88,31 +80,21 @@ public class MergeVideoMp3 {
 		command.add("-y");
 		command.add(videoOutputPath);
 		
-//		for (String c : command) {
-//			System.out.print(c + " ");
-//		}
-		
 		ProcessBuilder builder = new ProcessBuilder(command);
 		Process process = builder.start();
 		
 		InputStream errorStream = process.getErrorStream();
 		InputStreamReader inputStreamReader = new InputStreamReader(errorStream);
 		BufferedReader br = new BufferedReader(inputStreamReader);
-		
-		String line = "";
-		while ( (line = br.readLine()) != null ) {
+
+		if (new File(videoOutputPath).isFile()){
+			System.out.println("videoOutputPath222222 is File----------------------------------------");
 		}
-		
-		if (br != null) {
-			br.close();
-		}
-		if (inputStreamReader != null) {
-			inputStreamReader.close();
-		}
-		if (errorStream != null) {
-			errorStream.close();
-		}
-		
+
+		br.close();
+		inputStreamReader.close();
+		errorStream.close();
+
 	}
 
 	/**
@@ -121,14 +103,15 @@ public class MergeVideoMp3 {
 	public static void main(String[] args) {
 
 		MergeVideoMp3 ffmpeg = new MergeVideoMp3(
-				"D:\\ffmpeg-20200620-29ea4e1-win64-static\\bin\\ffmpeg.exe");
+				"/usr/local/bin/ffmpeg");
 		try {
 
-			ffmpeg.passVideo("F:\\videos\\tvc-v3_0b9db49_Trim.mp4", "F:\\videos\\tvc-v3_0b9db49_Trim1.mp4");
-			ffmpeg.convertor("F:\\videos\\tvc-v3_0b9db49_Trim1.mp4",
-					"F:\\fengli_videos_dev\\bgm\\一支榴莲 - 海底.mp3",
+			ffmpeg.passVideo("/root/fengli_videos_dev/2006257HXB39WTTC/video/wxb9cb2258cf0e244f.o6zAJs66hhpsiijNW5xwnrb0im6Q.xHy7LtLVT2ma43130f8f167cc3ba00c3d3df2e7fff72.mp4",
+					"/root/fengli_videos_dev/temp/test.mp4");
+			ffmpeg.convertor("/root/fengli_videos_dev/temp/test.mp4",
+					"/root/fengli_videos_dev/bgm/一支榴莲 - 海底.mp3",
 					7.1,
-					"F:\\这是通过java生产的视频.mp4");
+					"/root/fengli_videos_dev/end.mp4");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

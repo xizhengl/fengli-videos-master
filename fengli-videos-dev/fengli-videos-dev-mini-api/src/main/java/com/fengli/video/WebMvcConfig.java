@@ -20,6 +20,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		registry.addResourceHandler("/**")
 		.addResourceLocations("classpath:/META-INF/resources/")
 				.addResourceLocations("file:F:/fengli_videos_dev/");
+//				.addResourceLocations("file:/root/fengli_videos_dev/");
 	}
 
 //	@Bean(initMethod="init")

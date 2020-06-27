@@ -1,11 +1,11 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/mine/mine",
     "pages/videoinfo/videoinfo",
     "pages/videotest/videotest",
     "pages/userLogin/login",
     "pages/chooseBgm/chooseBgm",
-    "pages/mine/mine",
     "pages/userRegist/regist",
     "pages/searchVideo/searchVideo"
   ],
@@ -16,7 +16,6 @@
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json",
   "networkTimeout": {
     "request": 10000,
     "connectSocket": 10000,

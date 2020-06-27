@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "action": "allow",
+      "page": "/page/index/index",
+      "params": ["a", "b"],
+      "matching": "exact"
+    },
+    {
+      "action": "disallow",
+      "page": "/page/index/index"
+    }
+  ]
+}

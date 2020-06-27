@@ -6,6 +6,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>fengli-videos-dev-service</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>com.fengli</groupId>
@@ -13,13 +14,8 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

@@ -1,0 +1,10 @@
+com\fengli\video\mapper\VideosMapper.class
+com\fengli\video\mapper\BgmMapper.class
+com\fengli\video\mapper\VideosCustomMapper.class
+com\fengli\video\mapper\CommentsMapper.class
+com\fengli\video\mapper\SearchRecordsMapper.class
+com\fengli\video\mapper\UsersReportMapper.class
+com\fengli\video\mapper\UsersFansMapper.class
+com\fengli\video\mapper\CommentsCustomMapper.class
+com\fengli\video\mapper\UsersLikeVideosMapper.class
+com\fengli\video\mapper\UsersMapper.class

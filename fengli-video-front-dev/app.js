@@ -1,11 +1,14 @@
 //app.js
 App({
-  serverUrl:"http://e6hv7z.natappfree.cc",
+  // serverUrl:"http://555xkh.natappfree.cc",
+  // serverUrl:"http://39.99.250.62:8080",
+  serverUrl:"http://localhost:8081",
   userInfo: null,
+
   
   setGlobalUserInfo: function(user) {
     wx.setStorageSync("userInfo", user);
-  },
+  }, 
 
   getGlobalUserInfo: function () {
     return wx.getStorageSync("userInfo");

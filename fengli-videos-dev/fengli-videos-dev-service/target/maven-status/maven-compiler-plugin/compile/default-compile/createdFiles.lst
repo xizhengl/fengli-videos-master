@@ -1,0 +1,6 @@
+com\fengli\video\service\impl\VideoServiceImpl.class
+com\fengli\video\service\VideoService.class
+com\fengli\video\service\impl\UserServiceImpl.class
+com\fengli\video\service\BgmService.class
+com\fengli\video\service\UserService.class
+com\fengli\video\service\impl\BgmServiceImpl.class

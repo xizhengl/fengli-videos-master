@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.util.Date;
 import java.util.UUID;
 
+import com.fengli.video.service.BgmService;
+import com.fengli.video.service.VideoService;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +21,6 @@ import com.fengli.video.enums.VideoStatusEnum;
 import com.fengli.video.pojo.Bgm;
 import com.fengli.video.pojo.Comments;
 import com.fengli.video.pojo.Videos;
-import com.fengli.video.service.BgmService;
-import com.fengli.video.service.VideoService;
 import com.fengli.video.utils.FetchVideoCover;
 import com.fengli.video.utils.FengliJsonResult;
 import com.fengli.video.utils.MergeVideoMp3;
@@ -76,6 +76,7 @@ public class VideoController extends BasicController {
 		// 保存到数据库中的相对路径
 		String uploadPathDB = "/" + userId + "/video";
 		String coverPathDB = "/" + userId + "/video";
+		String tempPath = "";
 		
 		FileOutputStream fileOutputStream = null;
 		InputStream inputStream = null;
@@ -137,16 +138,19 @@ public class VideoController extends BasicController {
 			String videoOutputName = UUID.randomUUID().toString() + ".mp4";
 			uploadPathDB = "/" + userId + "/video" + "/" + videoOutputName;
 			finalVideoPath = FILE_SPACE + uploadPathDB;
-			String tempPath = FILE_SPACE + "/temp/" + userId + UUID.randomUUID().toString() + ".mp4";
+			tempPath = FILE_SPACE + "/temp/" + userId + UUID.randomUUID().toString() + ".mp4";
 			tool.passVideo(videoInputPath, tempPath);
 			tool.convertor(tempPath, mp3InputPath, videoSeconds, finalVideoPath);
 		}
-		System.out.println("uploadPathDB=" + uploadPathDB);
-		System.out.println("finalVideoPath=" + finalVideoPath);
+
+		System.out.println("------------------tempPath=" + tempPath);
+		System.out.println("------------------uploadPathDB=" + uploadPathDB);
+		System.out.println("------------------finalVideoPath=" + finalVideoPath);
 		
 		// 对视频进行截图
 		FetchVideoCover videoInfo = new FetchVideoCover(FFMPEG_EXE);
 		videoInfo.getCover(finalVideoPath, FILE_SPACE + coverPathDB);
+		System.out.println("-------------------coverPathDB:" + coverPathDB);
 		
 		// 保存视频信息到数据库
 		Videos video = new Videos();
