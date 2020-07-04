@@ -27,31 +27,41 @@ public class MergeVideoMp3 {
 	public void passVideo(String videoInputPath, String videoOutputPath) throws IOException {
 		List<String> commands = new ArrayList<>();
 		commands.add(ffmpegEXE);
-
 		commands.add("-i");
 		commands.add(videoInputPath);
-
 		commands.add("-vcodec");
 		commands.add("copy");
 		commands.add("-an");
 		commands.add(videoOutputPath);
 
 		ProcessBuilder builder = new ProcessBuilder(commands);
-		Process process = builder.start();
+		Process process = null;
+        InputStream errorStream = null;
+        InputStreamReader inputStreamReader = null;
+        BufferedReader br = null;
 
-		InputStream errorStream = process.getErrorStream();
-		InputStreamReader inputStreamReader = new InputStreamReader(errorStream);
-		BufferedReader br = new BufferedReader(inputStreamReader);
+        try{
+            process = builder.start();
+            errorStream = process.getErrorStream();
+            inputStreamReader = new InputStreamReader(errorStream);
+            br = new BufferedReader(inputStreamReader);
+            String line = "";
+            while ( (line = br.readLine()) != null){
 
-
-		if (new File(videoOutputPath).isFile()){
-			System.out.println("videoOutputPath1111111 is File----------------------------------------");
-		}
-
-		br.close();
-		inputStreamReader.close();
-		errorStream.close();
-
+            }
+        }catch (Exception e){
+		    e.printStackTrace();
+        }finally {
+            if (br != null){
+                br.close();
+            }
+            if (inputStreamReader != null){
+                inputStreamReader.close();
+            }
+            if (errorStream != null){
+                errorStream.close();
+            }
+        }
 	}
 
 	/**
@@ -67,7 +77,7 @@ public class MergeVideoMp3 {
 //		ffmpeg.exe -i 苏州大裤衩.mp4 -i bgm.mp3 -t 7 -y 新的视频.mp4
 		List<String> command = new ArrayList<>();
 		command.add(ffmpegEXE);
-		
+
 		command.add("-i");
 		command.add(videoInputPath);
 		
@@ -79,21 +89,36 @@ public class MergeVideoMp3 {
 		
 		command.add("-y");
 		command.add(videoOutputPath);
-		
-		ProcessBuilder builder = new ProcessBuilder(command);
-		Process process = builder.start();
-		
-		InputStream errorStream = process.getErrorStream();
-		InputStreamReader inputStreamReader = new InputStreamReader(errorStream);
-		BufferedReader br = new BufferedReader(inputStreamReader);
 
-		if (new File(videoOutputPath).isFile()){
-			System.out.println("videoOutputPath222222 is File----------------------------------------");
-		}
+        ProcessBuilder builder = new ProcessBuilder(command);
 
-		br.close();
-		inputStreamReader.close();
-		errorStream.close();
+        Process process = null;
+        InputStream errorStream = null;
+        InputStreamReader inputStreamReader = null;
+        BufferedReader br = null;
+
+        try{
+            process = builder.start();
+            errorStream = process.getErrorStream();
+            inputStreamReader = new InputStreamReader(errorStream);
+            br = new BufferedReader(inputStreamReader);
+            String line = "";
+            while ( (line = br.readLine()) != null){
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            if (br != null){
+                br.close();
+            }
+            if (inputStreamReader != null){
+                inputStreamReader.close();
+            }
+
+            if (errorStream != null){
+                errorStream.close();
+            }
+        }
 
 	}
 

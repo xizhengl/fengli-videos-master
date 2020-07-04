@@ -7,11 +7,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="fengli-videos-dev-mapper" />
+        <module name="fengli-videos-dev-service" />
         <module name="fengli-videos-dev-common" />
         <module name="fengli-videos-dev-pojo" />
-        <module name="fengli-videos-dev-mini-api" />
         <module name="mybatis-generatorConfig" />
-        <module name="fengli-videos-dev-service" />
+        <module name="fengli-videos-dev-mini-api" />
       </profile>
     </annotationProcessing>
   </component>

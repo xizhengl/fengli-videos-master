@@ -16,7 +16,7 @@
 		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
 		<jdbcConnection 
 			driverClass="com.mysql.cj.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/fengli-video-dev?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true"
+			connectionURL="jdbc:mysql://localhost:3306/spark-laboratory-develop?characterEncoding=utf8&amp;useSSL=false&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true"
 			userId="root"
 			password="root">
 		</jdbcConnection>
@@ -29,7 +29,7 @@
 
 		<!-- targetProject:生成Entity类的路径 -->
 		<javaModelGenerator targetProject=".\src\main\java"
-			targetPackage="com.fengli.video.pojo">
+			targetPackage="com.spark.laboratory.pojo">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 			<!-- 从数据库返回的值被清理前后的空格 -->
@@ -38,7 +38,7 @@
 
 		<!-- targetProject:XxxMapper.xml映射文件生成的路径 -->
 		<sqlMapGenerator targetProject=".\src\main\java"
-			targetPackage="com.fengli.video.mapper">
+			targetPackage="com.spark.laboratory.mapper">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
@@ -46,20 +46,21 @@
 		<!-- targetPackage：Mapper接口生成的位置 -->
 		<javaClientGenerator type="XMLMAPPER"
 			targetProject=".\src\main\java"
-			targetPackage="com.fengli.video.mapper">
+			targetPackage="com.spark.laboratory.mapper">
 			<!-- enableSubPackages:是否让schema作为包的后缀 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
 
 		<!-- 数据库表名字和我们的entity类对应的映射指定 -->
-		<table tableName="bgm" domainObjectName="Bgm"></table>
-		<table tableName="comments" domainObjectName="Comments"></table>
-		<table tableName="search_records" domainObjectName="Search_records"></table>
-		<table tableName="users" domainObjectName="Users"></table>
-		<table tableName="users_fans" domainObjectName="Users_fans"></table>
-		<table tableName="users_like_videos" domainObjectName="Users_like_videos"></table>
-		<table tableName="users_report" domainObjectName="Users_report"></table>
-		<table tableName="videos" domainObjectName="Videos"></table>
+<!--		<table tableName="bgm" domainObjectName="Bgm"></table>-->
+<!--		<table tableName="comments" domainObjectName="Comments"></table>-->
+<!--		<table tableName="search_records" domainObjectName="Search_records"></table>-->
+<!--		<table tableName="users" domainObjectName="Users"></table>-->
+<!--		<table tableName="users_fans" domainObjectName="Users_fans"></table>-->
+<!--		<table tableName="users_like_videos" domainObjectName="Users_like_videos"></table>-->
+<!--		<table tableName="users_report" domainObjectName="Users_report"></table>-->
+<!--		<table tableName="videos" domainObjectName="Videos"></table>-->
+		<table tableName="tb_introduce_step" domainObjectName="IntroduceStep"></table>
 
 
 

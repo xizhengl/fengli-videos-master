@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/mine/mine",
     "pages/videoinfo/videoinfo",
@@ -9,11 +9,11 @@
     "pages/userRegist/regist",
     "pages/searchVideo/searchVideo"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "不看短视频",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "networkTimeout": {
@@ -21,5 +21,6 @@
     "connectSocket": 10000,
     "uploadFile": 1000000,
     "downloadFile": 10000
-  }
+  },
+  "sitemapLocation": "sitemap63.json"
 }

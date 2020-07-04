@@ -2,32 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c666f70e-c1ca-4acf-93df-2762722688bb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mybatis-generatorConfig/mybatis-generatorConfig.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fengli-video-front-dev/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fengli-video-front-dev/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fengli-video-front-dev/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fengli-video-front-dev/app.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fengli-video-front-dev/pages/videoinfo/videoinfo.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/../fengli-video-front-dev/pages/videoinfo/videoinfo.wxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-common/src/main/java/com/fengli/video/utils/FetchVideoCover.java" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-common/src/main/java/com/fengli/video/utils/FetchVideoCover.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fengli-videos-dev-common/src/main/java/com/fengli/video/utils/MergeVideoMp3.java" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-common/src/main/java/com/fengli/video/utils/MergeVideoMp3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-common/target/classes/META-INF/fengli-videos-dev-common.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-common/target/classes/com/fengli/video/utils/FetchVideoCover.class" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-common/target/classes/com/fengli/video/utils/FetchVideoCover.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fengli-videos-dev-common/target/classes/com/fengli/video/utils/MergeVideoMp3.class" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-common/target/classes/com/fengli/video/utils/MergeVideoMp3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/java/com/fengli/video/WebMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/java/com/fengli/video/WebMvcConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/java/com/fengli/video/controller/BasicController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/java/com/fengli/video/controller/BasicController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/java/com/fengli/video/controller/VideoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/java/com/fengli/video/controller/VideoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/resources/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/resources/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/application-dev.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/com/fengli/video/WebMvcConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/com/fengli/video/WebMvcConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/com/fengli/video/controller/BasicController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/com/fengli/video/controller/BasicController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/com/fengli/video/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/com/fengli/video/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/com/fengli/video/controller/VideoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/com/fengli/video/controller/VideoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-pojo/target/classes/com/fengli/video/pojo/vo/PublisherVideo.class" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-pojo/target/classes/com/fengli/video/pojo/vo/PublisherVideo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/fengli-videos-dev-mini-api-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/fengli-videos-dev-mini-api-0.0.1-SNAPSHOT.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fengli-videos-dev-mini-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generatorConfig/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-generatorConfig/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-generatorConfig/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +191,10 @@
       <workItem from="1592440884199" duration="23147000" />
       <workItem from="1592528855606" duration="3147000" />
       <workItem from="1593134080054" duration="21874000" />
-      <workItem from="1593175576522" duration="17548000" />
+      <workItem from="1593175576522" duration="19361000" />
+      <workItem from="1593437364901" duration="14000" />
+      <workItem from="1593609534269" duration="1213000" />
+      <workItem from="1593848299230" duration="3197000" />
     </task>
     <servers />
   </component>
@@ -217,10 +211,10 @@
     </state>
     <state x="275" y="26" key="#Project_Structure/0.0.1366.728@0.0.1366.728" timestamp="1592137118229" />
     <state x="387" y="37" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1592218875224" />
-    <state x="274" y="45" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593176830288">
+    <state x="274" y="45" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593848351362">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="274" y="45" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1593176830288" />
+    <state x="274" y="45" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1593848351362" />
     <state x="414" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592210906039" />
     <state x="305" y="45" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1592134749717">
       <screen x="0" y="0" width="1366" height="728" />
@@ -256,45 +250,45 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="508" y="262" width="373" height="203" key="Github.CreateGistDialog/0.0.1366.728@0.0.1366.728" timestamp="1593174107683" />
-    <state width="1323" height="273" key="GridCell.Tab.0.bottom" timestamp="1593230490549">
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1593851419117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="273" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593230490549" />
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593851419117" />
     <state width="1877" height="453" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592478264174" />
-    <state width="1323" height="273" key="GridCell.Tab.0.center" timestamp="1593230490549">
+    <state width="1323" height="176" key="GridCell.Tab.0.center" timestamp="1593851419117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="273" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593230490549" />
+    <state width="1323" height="176" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593851419117" />
     <state width="1877" height="453" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592478264174" />
-    <state width="1323" height="273" key="GridCell.Tab.0.left" timestamp="1593230490549">
+    <state width="1323" height="176" key="GridCell.Tab.0.left" timestamp="1593851419117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="273" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593230490549" />
+    <state width="1323" height="176" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593851419117" />
     <state width="1877" height="453" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592478264173" />
-    <state width="1323" height="273" key="GridCell.Tab.0.right" timestamp="1593230490549">
+    <state width="1323" height="176" key="GridCell.Tab.0.right" timestamp="1593851419117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="273" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593230490549" />
+    <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593851419117" />
     <state width="1877" height="453" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592478264174" />
-    <state width="1323" height="273" key="GridCell.Tab.1.bottom" timestamp="1593230490550">
+    <state width="1323" height="176" key="GridCell.Tab.1.bottom" timestamp="1593851419117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="273" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593230490550" />
+    <state width="1323" height="176" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593851419117" />
     <state width="1877" height="453" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592478264175" />
-    <state width="1323" height="273" key="GridCell.Tab.1.center" timestamp="1593230490549">
+    <state width="1323" height="176" key="GridCell.Tab.1.center" timestamp="1593851419117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="273" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1593230490549" />
+    <state width="1323" height="176" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1593851419117" />
     <state width="1877" height="453" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592478264174" />
-    <state width="1323" height="273" key="GridCell.Tab.1.left" timestamp="1593230490549">
+    <state width="1323" height="176" key="GridCell.Tab.1.left" timestamp="1593851419117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="273" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1593230490549" />
+    <state width="1323" height="176" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1593851419117" />
     <state width="1877" height="453" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592478264174" />
-    <state width="1323" height="273" key="GridCell.Tab.1.right" timestamp="1593230490550">
+    <state width="1323" height="176" key="GridCell.Tab.1.right" timestamp="1593851419117">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="273" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1593230490550" />
+    <state width="1323" height="176" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1593851419117" />
     <state width="1877" height="453" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592478264174" />
     <state width="1877" height="327" key="GridCell.Tab.2.bottom" timestamp="1592472183194">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -326,20 +320,20 @@
     </state>
     <state x="404" y="105" width="540" height="524" key="StructurePopup/0.0.1366.728@0.0.1366.728" timestamp="1592134818719" />
     <state x="568" y="150" width="760" height="749" key="StructurePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1592306746551" />
-    <state x="375" y="192" key="com.intellij.ide.util.TipDialog" timestamp="1593134080068">
+    <state x="375" y="192" key="com.intellij.ide.util.TipDialog" timestamp="1593437364926">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="375" y="192" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593134080068" />
+    <state x="375" y="192" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1593437364926" />
     <state x="527" y="274" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592528863179" />
-    <state x="57" y="68" key="new project wizard" timestamp="1593248302260">
+    <state x="57" y="68" key="new project wizard" timestamp="1593852128987">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="57" y="68" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1593248302260" />
+    <state x="57" y="68" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1593852128987" />
     <state x="80" y="97" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1592206858075" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1593224534738">
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1593851062961">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593224534738" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1593851062961" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1593225606289">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
